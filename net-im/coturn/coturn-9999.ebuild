@@ -52,12 +52,17 @@ src_configure() {
 src_install() {
 	default
 	newinitd "${FILESDIR}/turnserver.init" turnserver
+	keepdir /var/log/turnserver
 }
 
 pkg_postinst() {
 	enewgroup turnserver
 	enewuser turnserver -1 -1 -1 turnserver
+	chown turnserver.turnserver /var/log/turnserver
 	elog "Be aware that the default path for logfiles in coturn is /var/tmp!"
 	elog "You should copy /etc/turnserver.conf.default to"
 	elog "/etc/turnserver.conf and change not only the log option."
+	elog "Recommended logging settings for turnserver.conf:"
+	elog "simple-log"
+	elog "log-file=/var/log/turnserver/turnserver.log"
 }
