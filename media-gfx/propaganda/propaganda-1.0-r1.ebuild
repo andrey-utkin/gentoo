@@ -63,6 +63,6 @@ src_compile() {
 src_install() {
 	dodir /usr/share/pixmaps/
 	gunzip magicbg.tar.gz
-	dodoc COPYING READM*  magicbg.tar
+	dodoc README README-PROPAGANDA magicbg.tar
 	mv -f "${S}" "${D}/usr/share/pixmaps" || die
 }
