@@ -1,6 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+EAPI=6
 S=${WORKDIR}/Propaganda
 DESCRIPTION="Propaganda Volume 1-14 + E. Tiling images for your desktop"
 HOMEPAGE="http://www.resexcellence.com/propaganda/index.shtml"
