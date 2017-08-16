@@ -50,6 +50,10 @@ src_compile() {
 	chmod -x "${S}/Propaganda-For-E"/*
 	cd "${S}/Propaganda-For-E/"
 	rm *.html
+	rm "${S}/COPYING"
+	rm "${S}"/*/COPYING
+	rm "${S}/README-GPL"
+	rm "${S}"/*/README-GPL
 	rename JPG jpg *.JPG
 	chmod +x script.perl
 	./script.perl *.jpg
