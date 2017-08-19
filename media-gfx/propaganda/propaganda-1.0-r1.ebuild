@@ -4,7 +4,7 @@
 EAPI=6
 S="${WORKDIR}/Propaganda"
 DESCRIPTION="Propaganda Volume 1-14 + E. Tiling images for your desktop"
-HOMEPAGE="http://www.resexcellence.com/propaganda/index.shtml"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 SITE="http://www.resexcellence.com/propaganda/"
 # Point to any required sources; these will be automatically
 # downloaded by Portage.
