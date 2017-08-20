@@ -46,8 +46,7 @@ src_compile() {
 		./script.perl *.jpg
 		popd > /dev/null || die
 	done
-	chmod ugo-w -R "${S}"
-	chmod ugo+r -R "${S}"
+	chmod a-w,a+r -R "${S}"
 }
 
 src_install() {
