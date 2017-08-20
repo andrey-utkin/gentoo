@@ -39,25 +39,19 @@ src_compile() {
 	mv "${S}/../Propaganda-Vol-11" "${S}/Vol11"
 	mv "${S}/../Propaganda-Vol-12" "${S}/Vol12"
 
-	for NUM in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; do
-		chmod -x "${S}/Vol${NUM}"/*
-		cd "${S}/Vol${NUM}"
+	for VOLUME in Vol* Propaganda-For-E; do
+		pushd "$VOLUME" > /dev/null || die
+		chmod -x *
 		rm *.html
 		rename JPG jpg *.JPG
 		chmod +x script.perl
 		./script.perl *.jpg
+		popd > /dev/null || die
 	done
-	chmod -x "${S}/Propaganda-For-E"/*
-	cd "${S}/Propaganda-For-E/"
-	rm *.html
 	rm "${S}/COPYING"
 	rm "${S}"/*/COPYING
 	rm "${S}/README-GPL"
 	rm "${S}"/*/README-GPL
-	rename JPG jpg *.JPG
-	chmod +x script.perl
-	./script.perl *.jpg
-	cd "${S}"
 	pwd
 	rm -f "${S}/Vol2/@"
 	chmod ugo-w -R "${S}"
