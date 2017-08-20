@@ -30,28 +30,28 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 src_compile() {
-	mv "${S}/../Propaganda-Vol-11" "${S}/Vol11"
-	mv "${S}/../Propaganda-Vol-12" "${S}/Vol12"
+	mv "${S}/../Propaganda-Vol-11" "${S}/Vol11" || die
+	mv "${S}/../Propaganda-Vol-12" "${S}/Vol12" || die
 
-	rm -fr */.finderinfo */.resource
-	rm */*.html
-	rm COPYING */COPYING README-GPL */README-GPL
-	rm "Vol2/@"
+	rm -fr */.finderinfo */.resource || die
+	rm */*.html || die
+	rm COPYING */COPYING README-GPL */README-GPL || die
+	rm "Vol2/@" || die
 
 	for VOLUME in Vol* Propaganda-For-E; do
 		pushd "$VOLUME" > /dev/null || die
-		chmod -x *
+		chmod -x * || die
 		rename JPG jpg *.JPG
-		chmod +x script.perl
-		./script.perl *.jpg
+		chmod +x script.perl || die
+		./script.perl *.jpg || die
 		popd > /dev/null || die
 	done
-	chmod a-w,a+r -R "${S}"
+	chmod a-w,a+r -R "${S}" || die
 }
 
 src_install() {
 	dodir /usr/share/pixmaps/
-	gunzip magicbg.tar.gz
+	gunzip magicbg.tar.gz || die
 	dodoc README README-PROPAGANDA magicbg.tar
 	mv -f "${S}" "${D}/usr/share/pixmaps" || die
 }
