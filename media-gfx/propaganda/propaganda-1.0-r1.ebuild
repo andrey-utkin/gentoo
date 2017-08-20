@@ -30,14 +30,10 @@ KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 src_compile() {
-	rm -fr "${S}/../Propaganda-Vol-11/.finderinfo"
-	rm -fr "${S}/../Propaganda-Vol-11/.resource"
-
-	rm -fr "${S}/../Propaganda-Vol-12/.finderinfo"
-	rm -fr "${S}/../Propaganda-Vol-12/.resource"
-
 	mv "${S}/../Propaganda-Vol-11" "${S}/Vol11"
 	mv "${S}/../Propaganda-Vol-12" "${S}/Vol12"
+
+	rm -fr */.finderinfo */.resource
 
 	for VOLUME in Vol* Propaganda-For-E; do
 		pushd "$VOLUME" > /dev/null || die
