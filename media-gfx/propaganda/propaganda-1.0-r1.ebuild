@@ -34,22 +34,19 @@ src_compile() {
 	mv "${S}/../Propaganda-Vol-12" "${S}/Vol12"
 
 	rm -fr */.finderinfo */.resource
+	rm */*.html
+	rm COPYING */COPYING README-GPL */README-GPL
+	rm "Vol2/@"
 
 	for VOLUME in Vol* Propaganda-For-E; do
 		pushd "$VOLUME" > /dev/null || die
 		chmod -x *
-		rm *.html
 		rename JPG jpg *.JPG
 		chmod +x script.perl
 		./script.perl *.jpg
 		popd > /dev/null || die
 	done
-	rm "${S}/COPYING"
-	rm "${S}"/*/COPYING
-	rm "${S}/README-GPL"
-	rm "${S}"/*/README-GPL
 	pwd
-	rm -f "${S}/Vol2/@"
 	chmod ugo-w -R "${S}"
 	chmod ugo+r -R "${S}"
 }
