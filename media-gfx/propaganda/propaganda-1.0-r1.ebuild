@@ -2,6 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
+
+inherit estack
+
 S="${WORKDIR}/Propaganda"
 DESCRIPTION="Propaganda Volume 1-14 + E. Tiling images for your desktop"
 HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
@@ -41,7 +44,11 @@ src_compile() {
 	for VOLUME in Vol* Propaganda-For-E; do
 		pushd "$VOLUME" > /dev/null || die
 		chmod -x * || die
-		rename JPG jpg *.JPG
+		eshopts_push -s nullglob
+		for JPG in *.JPG; do
+			rename JPG jpg "$JPG" || die
+		done
+		eshopts_pop
 		chmod +x script.perl || die
 		./script.perl *.jpg || die
 		popd > /dev/null || die
