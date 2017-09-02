@@ -27,7 +27,9 @@ LICENSE="GPL-2+"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
-src_compile() {
+src_prepare() {
+	default
+
 	mv ../Propaganda-Vol-11 Vol11
 	mv ../Propaganda-Vol-12 Vol12
 
