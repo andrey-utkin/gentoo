@@ -30,10 +30,10 @@ IUSE=""
 src_prepare() {
 	default
 
-	mv ../Propaganda-Vol-11 Vol11
-	mv ../Propaganda-Vol-12 Vol12
+	mv ../Propaganda-Vol-11 Vol11 || die
+	mv ../Propaganda-Vol-12 Vol12 || die
 
-	rename JPG jpg */*.JPG
+	rename JPG jpg */*.JPG || die
 }
 
 src_install() {
