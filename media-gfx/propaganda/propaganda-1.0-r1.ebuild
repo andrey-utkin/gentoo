@@ -6,8 +6,6 @@ S="${WORKDIR}/Propaganda"
 DESCRIPTION="Propaganda Volume 1-14 + E. Tiling images for your desktop"
 HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
 SITE="mirror://gentoo/"
-# Point to any required sources; these will be automatically
-# downloaded by Portage.
 SRC_URI="${SITE}Propaganda-Vol-01.tar.gz
 	${SITE}Propaganda-Vol-02.tar.gz
 	${SITE}Propaganda-Vol-03.tar.gz
