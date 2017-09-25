@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="6"
 
 inherit pam autotools multilib
 
@@ -20,9 +20,13 @@ RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${PN}
 
+PATCHES=(
+"${FILESDIR}/${P}-char-locales.patch" #412941
+"${FILESDIR}/${P}-bad-log.patch"
+)
+
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-char-locales.patch #412941
-	epatch "${FILESDIR}"/${P}-bad-log.patch
+	default
 	mv configure.{in,ac} || die
 	eautoreconf
 }
