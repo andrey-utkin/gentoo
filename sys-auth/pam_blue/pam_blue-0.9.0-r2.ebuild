@@ -6,8 +6,8 @@ EAPI="6"
 inherit pam autotools multilib
 
 DESCRIPTION="Linux PAM module to authenticate via a bluetooth device"
-HOMEPAGE="http://pam.0xdef.net/"
-SRC_URI="http://pam.0xdef.net/source/${P}.tar.bz2"
+HOMEPAGE="https://wiki.gentoo.org/wiki/No_homepage"
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -46,6 +46,5 @@ src_install() {
 
 pkg_postinst() {
 	elog "For configuration info, see /etc/security/bluesscan.conf.sample"
-	elog "http://pam.0xdef.net/doc.html and http://pam.0xdef.net/faq.html"
 	elog "Edit the file as required and copy/rename to bluesscan.conf when done."
 }
