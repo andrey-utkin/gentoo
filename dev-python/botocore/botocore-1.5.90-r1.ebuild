@@ -25,10 +25,8 @@ CDEPEND="
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	doc? (
-		>=dev-python/guzzle_sphinx_theme-0.7.10[${PYTHON_USEDEP}]
-		<dev-python/guzzle_sphinx_theme-0.8[${PYTHON_USEDEP}]
-		>=dev-python/sphinx-1.1.3[${PYTHON_USEDEP}]
-		<dev-python/sphinx-1.3[${PYTHON_USEDEP}]
+		dev-python/guzzle_sphinx_theme[${PYTHON_USEDEP}]
+		dev-python/sphinx[${PYTHON_USEDEP}]
 	)
 	test? (
 		${CDEPEND}
