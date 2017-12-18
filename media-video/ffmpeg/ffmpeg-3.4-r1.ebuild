@@ -378,6 +378,13 @@ multilib_src_configure() {
 	# LTO support, bug #566282
 	is-flagq "-flto*" && myconf+=( "--enable-lto" )
 
+	# AppKit on Linux workaround, bug #637482
+	# This workaround is required only for 3.4 release series,
+	# git master and future release series are already fixed.
+	if [[ ${CHOST} != *darwin* ]] ; then
+		myconf+=( --disable-appkit )
+	fi
+
 	# Mandatory configuration
 	myconf=(
 		--enable-avfilter
