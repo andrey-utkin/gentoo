@@ -5,7 +5,7 @@ EAPI=6
 
 PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
 
-inherit distutils-r1
+inherit distutils-r1 vcs-snapshot
 
 DESCRIPTION="Ruamel enhancements to pathlib and pathlib2"
 HOMEPAGE="https://pypi.python.org/pypi/ruamel.std.pathlib https://bitbucket.org/ruamel/std.pathlib"
