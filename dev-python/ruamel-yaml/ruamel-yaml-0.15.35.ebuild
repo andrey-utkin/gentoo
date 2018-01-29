@@ -34,8 +34,6 @@ DEPEND="
 	)
 "
 
-S="${WORKDIR}/${MY_PN}-${PV}"
-
 python_configure_all() {
 	use libyaml || sed -i -e 's|\(ext_modules\)|no_\1|' __init__.py || die
 }
