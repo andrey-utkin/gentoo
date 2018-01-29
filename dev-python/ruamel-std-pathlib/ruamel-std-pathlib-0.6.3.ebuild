@@ -30,8 +30,6 @@ DEPEND="
 	)
 "
 
-S="${WORKDIR}/${MY_PN}-${PV}"
-
 python_install() {
 	distutils-r1_python_install --single-version-externally-managed
 	find "${ED}" -name '*.pth' -delete || die
