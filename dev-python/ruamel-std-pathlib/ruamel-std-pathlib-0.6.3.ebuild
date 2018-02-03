@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit distutils-r1 vcs-snapshot
 
@@ -19,7 +19,7 @@ IUSE="test"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	$(python_gen_cond_dep 'dev-python/pathlib2[${PYTHON_USEDEP}]' python2_7 python3_4)
+	$(python_gen_cond_dep 'dev-python/pathlib2[${PYTHON_USEDEP}]' python3_4)
 "
 DEPEND="
 	${RDEPEND}

@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit distutils-r1 vcs-snapshot
 
@@ -22,7 +22,6 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( libyaml )"
 RDEPEND="
 	${PYTHON_DEPS}
 	libyaml? ( dev-libs/libyaml )
-	$(python_gen_cond_dep 'dev-python/ruamel-ordereddict[${PYTHON_USEDEP}]' python2_7)
 "
 DEPEND="
 	${RDEPEND}
