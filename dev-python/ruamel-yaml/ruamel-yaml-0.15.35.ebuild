@@ -36,7 +36,7 @@ python_configure_all() {
 		sed -i -e 's|\(ext_modules\)|no_\1|' __init__.py || die
 
 		# Omit tests for optional, libyaml dependant functionality
-		rm _test/test_cyaml.py
+		rm _test/test_cyaml.py || die
 	fi
 }
 
@@ -48,7 +48,7 @@ python_install() {
 python_test() {
 	# This file produced by setup.py breaks finding system-wide installed
 	# ruamel.std.pathlib due to shared namespace
-	rm "${BUILD_DIR}/lib/ruamel/__init__.py"
+	rm "${BUILD_DIR}/lib/ruamel/__init__.py" || die
 
 	py.test -v _test/test_*.py || die
 }
