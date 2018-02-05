@@ -16,8 +16,6 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 IUSE="libyaml test"
-REQUIRED_USE="${PYTHON_REQUIRED_USE} test? ( libyaml )"
-# ^ tests can't be properly unbundled from the libyaml c-extension
 
 RDEPEND="
 	${PYTHON_DEPS}
@@ -34,7 +32,12 @@ DEPEND="
 "
 
 python_configure_all() {
-	use libyaml || sed -i -e 's|\(ext_modules\)|no_\1|' __init__.py || die
+	if ! use libyaml; then
+		sed -i -e 's|\(ext_modules\)|no_\1|' __init__.py || die
+
+		# Omit tests for optional, libyaml dependant functionality
+		rm _test/test_cyaml.py
+	fi
 }
 
 python_install() {
