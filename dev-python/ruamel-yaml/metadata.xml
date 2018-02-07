@@ -13,7 +13,4 @@
 		<remote-id type="bitbucket">ruamel/yaml</remote-id>
 		<remote-id type="pypi">ruamel.yaml</remote-id>
 	</upstream>
-	<use>
-		<flag name="libyaml">Enable faster, LibYAML based implementation of data loading and dumping</flag>
-	</use>
 </pkgmetadata>

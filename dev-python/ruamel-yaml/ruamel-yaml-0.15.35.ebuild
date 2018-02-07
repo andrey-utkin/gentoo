@@ -15,11 +15,10 @@ SRC_URI="https://bitbucket.org/${MY_PN/.//}/get/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="libyaml test"
+IUSE="test"
 
 RDEPEND="
 	${PYTHON_DEPS}
-	libyaml? ( dev-libs/libyaml )
 "
 DEPEND="
 	${RDEPEND}
@@ -30,15 +29,6 @@ DEPEND="
 		dev-python/ruamel-std-pathlib[${PYTHON_USEDEP}]
 	)
 "
-
-python_configure_all() {
-	if ! use libyaml; then
-		sed -i -e 's|\(ext_modules\)|no_\1|' __init__.py || die
-
-		# Omit tests for optional, libyaml dependant functionality
-		rm _test/test_cyaml.py || die
-	fi
-}
 
 python_install() {
 	distutils-r1_python_install --single-version-externally-managed
