@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>andrey_utkin@gentoo.org</email>
+		<name>Andrey Utkin</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">louiz/biboumi</remote-id>
+	</upstream>
+	<longdescription>
+		Biboumi is a Free, Libre and Open Source XMPP gateway that
+		connects to IRC servers and translates between the two
+		protocols. Its goal is to let XMPP users take part in IRC
+		discussions, using their favourite XMPP client.
+
+		It provides the following features:
+
+		* Connection from an unlimited number of XMPP users to an
+		unlimited number of IRC servers
+		* Persistent connections to a configured list of channels,
+		making it behave as an IRC bouncer
+		* Basic channel features: join, part, view and set the topic,
+		view and set channel or user modes, kick, nick change...
+		* Private conversations
+		* Notices
+		* Invitations
+		* IRC colors (receive only)
+		* TLS connections to IRC servers
+		* Channel listing
+		* CTCP version and ping
+		* Dynamic per-user, per-server configuration using XMPP ad-hoc
+		commands and data-forms
+		* Automatic sending of a command on connection (mostly used to
+		send an identify message to NickServ or other authentication
+		services)
+		* Support for sending arbitrary IRC commands to a server
+		* Embedded identd server
+		* Message Archive Management support
+	</longdescription>
+</pkgmetadata>
