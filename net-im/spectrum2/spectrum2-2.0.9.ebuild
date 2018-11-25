@@ -14,7 +14,7 @@ SRC_URI="https://github.com/SpectrumIM/spectrum2/archive/${PV}.tar.gz -> ${P}.ta
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="debug doc frotz irc mysql postgres purple sms +sqlite test twitter whatsapp xmpp"
+IUSE="debug doc frotz irc mysql postgres purple sms +sqlite test twitter whatsapp"
 REQUIRED_USE="|| ( mysql postgres sqlite )"
 
 RDEPEND="
@@ -99,7 +99,7 @@ src_configure() {
 		-DENABLE_SQLITE3="$(usex sqlite)"
 		-DENABLE_TESTS="$(usex test)"
 		-DENABLE_TWITTER="$(usex twitter)"
-		-DENABLE_XMPP="$(usex xmpp)"
+		-DENABLE_XMPP=yes
 		-DLIB_INSTALL_DIR="$(get_libdir)"
 	)
 
