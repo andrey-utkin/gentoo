@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -85,14 +85,10 @@ create_user-config.jam() {
 		# TODO: replace it with proper override one day
 		ln -f -s "$(python_get_library_path)" "${T}/lib${EPYTHON}$(get_libname)" || die
 
-		if tc-is-cross-compiler; then
-			python_configuration="using python : ${EPYTHON#python} : : ${SYSROOT:-${EROOT}}/usr/include/${EPYTHON} : ${SYSROOT:-${EROOT}}/usr/$(get_libdir) ;"
-		else
-			# note: we need to provide version explicitly because of
-			# a bug in the build system:
-			# https://github.com/boostorg/build/pull/104
-			python_configuration="using python : ${EPYTHON#python} : ${PYTHON} : $(python_get_includedir) : ${T} ;"
-		fi
+		# note: we need to provide version explicitly because of a bug
+		# in the build system:
+		# https://github.com/boostorg/build/pull/104
+		python_configuration="using python : ${EPYTHON#python} : ${PYTHON} : $(python_get_includedir) : ${T} ;"
 	fi
 
 	cat > "${BOOST_ROOT}/user-config.jam" << __EOF__ || die
