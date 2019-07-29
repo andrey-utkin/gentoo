@@ -27,7 +27,6 @@ src_install() {
 	doins -r include
 	into /opt
 	dobin bin/*
-	dobin sbin/*
 	insopts -m 0755
 	insinto "/opt/vc/lib"
 	doins -r lib/*
