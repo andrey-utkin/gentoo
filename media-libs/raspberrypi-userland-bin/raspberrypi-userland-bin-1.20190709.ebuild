@@ -20,10 +20,6 @@ S="${WORKDIR}/firmware-${PV}"
 
 RESTRICT="binchecks"
 
-src_prepare() {
-	rm {,hardfp/}opt/vc/LICENCE || die
-}
-
 src_install() {
 	cd $(usex hardfp hardfp/ "")opt/vc || die
 
